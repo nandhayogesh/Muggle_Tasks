@@ -61,7 +61,32 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				magical: {
+					gold: 'hsl(var(--magical-gold))',
+					purple: 'hsl(var(--magical-purple))',
+					'purple-deep': 'hsl(var(--magical-purple-deep))',
+					green: 'hsl(var(--magical-green))',
+					red: 'hsl(var(--magical-red))'
 				}
+			},
+			fontFamily: {
+				'magical': ['Cinzel', 'serif'],
+				'parchment': ['Crimson Text', 'serif'],
+			},
+			backgroundImage: {
+				'gradient-magical': 'var(--gradient-magical)',
+				'gradient-parchment': 'var(--gradient-parchment)',
+				'gradient-glow': 'var(--gradient-glow)',
+			},
+			boxShadow: {
+				'magical': 'var(--shadow-magical)',
+				'glow': 'var(--shadow-glow)',
+				'parchment': 'var(--shadow-parchment)',
+			},
+			transitionProperty: {
+				'magical': 'var(--transition-magical)',
+				'quick': 'var(--transition-quick)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
