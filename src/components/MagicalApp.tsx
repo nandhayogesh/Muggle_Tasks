@@ -51,7 +51,7 @@ export const MagicalApp: React.FC<MagicalAppProps> = ({ onBackToLanding }) => {
               <div className="hidden md:flex items-center gap-2">
                 <Scroll className="h-6 w-6 text-primary" />
                 <h1 className="font-magical text-2xl font-bold text-foreground">
-                  The Decree Scroll
+                  Muggle Task
                 </h1>
               </div>
             </div>
@@ -87,11 +87,11 @@ export const MagicalApp: React.FC<MagicalAppProps> = ({ onBackToLanding }) => {
           {/* Welcome Message */}
           <div className="text-center space-y-2">
             <h2 className="font-magical text-3xl md:text-4xl font-bold text-foreground">
-              Welcome to Your Magical Registry
+              Welcome to Your Task Manager
             </h2>
             <p className="font-parchment text-lg text-muted-foreground max-w-2xl mx-auto">
-              Inscribe your decrees upon this enchanted parchment. Each task becomes a magical contract 
-              with your future self, bound by ancient spells of productivity.
+              Organize your tasks with magical efficiency. Each item becomes a commitment 
+              to your future self, powered by productivity spells.
             </p>
           </div>
 
@@ -105,14 +105,14 @@ export const MagicalApp: React.FC<MagicalAppProps> = ({ onBackToLanding }) => {
                 <div className="flex flex-wrap items-center justify-between gap-4">
                   <div className="flex items-center gap-2">
                     <Filter className="h-4 w-4 text-accent" />
-                    <span className="font-parchment text-sm font-semibold">Reveal Decrees:</span>
+                    <span className="font-parchment text-sm font-semibold">Filter Tasks:</span>
                   </div>
                   
                   <div className="flex gap-2">
                     {[
-                      { key: 'all', label: 'All Scrolls' },
-                      { key: 'active', label: 'Active Spells' },
-                      { key: 'completed', label: 'Finished Incantations' }
+                      { key: 'all', label: 'All Tasks' },
+                      { key: 'active', label: 'In Progress' },
+                      { key: 'completed', label: 'Completed' }
                     ].map(({ key, label }) => (
                       <Button
                         key={key}
@@ -136,7 +136,7 @@ export const MagicalApp: React.FC<MagicalAppProps> = ({ onBackToLanding }) => {
               <div className="flex items-center justify-between">
                 <h3 className="font-magical text-xl font-semibold text-foreground flex items-center gap-2">
                   <Sparkles className="h-5 w-5 text-primary" />
-                  Your Magical Decrees
+                  Your Tasks
                   <span className="text-sm text-muted-foreground font-parchment">
                     ({filteredTasks.length})
                   </span>
@@ -166,10 +166,10 @@ export const MagicalApp: React.FC<MagicalAppProps> = ({ onBackToLanding }) => {
                 <div className="space-y-4">
                   <div className="text-6xl">🔍</div>
                   <h3 className="font-magical text-xl font-semibold text-foreground">
-                    No {filter} decrees found
+                    No {filter} tasks found
                   </h3>
                   <p className="font-parchment text-muted-foreground">
-                    Try adjusting your filter or add a new magical decree above.
+                    Try adjusting your filter or add a new task above.
                   </p>
                 </div>
               </CardContent>
@@ -180,11 +180,11 @@ export const MagicalApp: React.FC<MagicalAppProps> = ({ onBackToLanding }) => {
                 <div className="space-y-4">
                   <div className="text-6xl magical-float">📜</div>
                   <h3 className="font-magical text-xl font-semibold text-foreground">
-                    Your scroll awaits the first decree
+                    Your task list awaits your first entry
                   </h3>
                   <p className="font-parchment text-muted-foreground max-w-md mx-auto">
-                    Begin your magical journey by inscribing your first task upon this enchanted parchment. 
-                    What great quest shall you embark upon today?
+                    Start your productivity journey by adding your first task. 
+                    What goals will you accomplish today?
                   </p>
                 </div>
               </CardContent>
@@ -196,7 +196,7 @@ export const MagicalApp: React.FC<MagicalAppProps> = ({ onBackToLanding }) => {
       {/* Magical Footer */}
       <div className="mt-16 py-8 text-center border-t border-border/30">
         <p className="font-parchment text-sm text-muted-foreground italic">
-          "Happiness can be found even in the darkest of times, if one only remembers to turn on the light."
+          "The secret of getting ahead is getting started. Break your complex goals into simple tasks."
         </p>
       </div>
     </div>

@@ -21,25 +21,25 @@ export const TaskItem: React.FC<TaskItemProps> = ({
   onDeleteTask
 }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [editDecree, setEditDecree] = useState(task.decree);
-  const [editProphecyDate, setEditProphecyDate] = useState(task.prophecyDate);
-  const [editUrgencyLevel, setEditUrgencyLevel] = useState(task.urgencyLevel);
+  const [editTask, setEditTask] = useState(task.decree);
+  const [editDueDate, setEditDueDate] = useState(task.prophecyDate);
+  const [editPriority, setEditPriority] = useState(task.urgencyLevel);
 
   const handleSave = () => {
-    if (editDecree.trim()) {
+    if (editTask.trim()) {
       onUpdateTask(task.id, {
-        decree: editDecree.trim(),
-        prophecyDate: editProphecyDate,
-        urgencyLevel: editUrgencyLevel
+        decree: editTask.trim(),
+        prophecyDate: editDueDate,
+        urgencyLevel: editPriority
       });
       setIsEditing(false);
     }
   };
 
   const handleCancel = () => {
-    setEditDecree(task.decree);
-    setEditProphecyDate(task.prophecyDate);
-    setEditUrgencyLevel(task.urgencyLevel);
+    setEditTask(task.decree);
+    setEditDueDate(task.prophecyDate);
+    setEditPriority(task.urgencyLevel);
     setIsEditing(false);
   };
 
@@ -84,24 +84,24 @@ export const TaskItem: React.FC<TaskItemProps> = ({
           // Edit Mode
           <div className="space-y-4">
             <Input
-              value={editDecree}
-              onChange={(e) => setEditDecree(e.target.value)}
+              value={editTask}
+              onChange={(e) => setEditTask(e.target.value)}
               className="input-magical font-parchment"
-              placeholder="Edit your decree..."
+              placeholder="Edit your task..."
             />
             
             <div className="flex gap-4">
               <div className="flex-1">
                 <Input
                   type="date"
-                  value={editProphecyDate}
-                  onChange={(e) => setEditProphecyDate(e.target.value)}
+                  value={editDueDate}
+                  onChange={(e) => setEditDueDate(e.target.value)}
                   className="input-magical font-parchment text-sm"
                 />
               </div>
               
               <div className="flex-1">
-                <Select value={editUrgencyLevel} onValueChange={(value: Priority) => setEditUrgencyLevel(value)}>
+                <Select value={editPriority} onValueChange={(value: Priority) => setEditPriority(value)}>
                   <SelectTrigger className="input-magical font-parchment text-sm">
                     <SelectValue />
                   </SelectTrigger>
@@ -121,14 +121,14 @@ export const TaskItem: React.FC<TaskItemProps> = ({
             </div>
             
             <div className="flex gap-2">
-              <Button
-                onClick={handleSave}
-                size="sm"
-                className="bg-magical-green hover:bg-magical-green/90 text-white font-parchment"
-              >
-                <Save className="h-4 w-4 mr-1" />
-                Finite
-              </Button>
+                <Button
+                  onClick={handleSave}
+                  size="sm"
+                  className="bg-magical-green hover:bg-magical-green/90 text-white font-parchment"
+                >
+                  <Save className="h-4 w-4 mr-1" />
+                  Save
+                </Button>
               <Button
                 onClick={handleCancel}
                 size="sm"
@@ -187,26 +187,26 @@ export const TaskItem: React.FC<TaskItemProps> = ({
             
             {/* Action Buttons */}
             <div className="flex items-center justify-end gap-2 pt-2 border-t border-border/30">
-              <Button
-                onClick={() => setIsEditing(true)}
-                size="sm"
-                variant="ghost"
-                className="text-accent hover:text-accent/80 font-parchment text-xs"
-                disabled={task.completed}
-              >
-                <Edit3 className="h-3 w-3 mr-1" />
-                Reparo
-              </Button>
+                <Button
+                  onClick={() => setIsEditing(true)}
+                  size="sm"
+                  variant="ghost"
+                  className="text-accent hover:text-accent/80 font-parchment text-xs"
+                  disabled={task.completed}
+                >
+                  <Edit3 className="h-3 w-3 mr-1" />
+                  Edit
+                </Button>
               
-              <Button
-                onClick={() => onDeleteTask(task.id)}
-                size="sm"
-                variant="ghost"
-                className="text-destructive hover:text-destructive/80 font-parchment text-xs"
-              >
-                <Trash2 className="h-3 w-3 mr-1" />
-                Avada Kedavra
-              </Button>
+                <Button
+                  onClick={() => onDeleteTask(task.id)}
+                  size="sm"
+                  variant="ghost"
+                  className="text-destructive hover:text-destructive/80 font-parchment text-xs"
+                >
+                  <Trash2 className="h-3 w-3 mr-1" />
+                  Delete
+                </Button>
             </div>
           </div>
         )}

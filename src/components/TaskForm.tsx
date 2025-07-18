@@ -8,22 +8,22 @@ import { Priority, PRIORITY_LABELS } from '../types/task';
 import { Flame, Calendar, Zap } from 'lucide-react';
 
 interface TaskFormProps {
-  onAddTask: (decree: string, prophecyDate: string, urgencyLevel: Priority) => void;
+  onAddTask: (task: string, dueDate: string, priority: Priority) => void;
 }
 
 export const TaskForm: React.FC<TaskFormProps> = ({ onAddTask }) => {
-  const [decree, setDecree] = useState('');
-  const [prophecyDate, setProphecyDate] = useState('');
-  const [urgencyLevel, setUrgencyLevel] = useState<Priority>('first-year');
+  const [task, setTask] = useState('');
+  const [dueDate, setDueDate] = useState('');
+  const [priority, setPriority] = useState<Priority>('first-year');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (decree.trim() && prophecyDate) {
-      onAddTask(decree.trim(), prophecyDate, urgencyLevel);
-      setDecree('');
-      setProphecyDate('');
-      setUrgencyLevel('first-year');
+    if (task.trim() && dueDate) {
+      onAddTask(task.trim(), dueDate, priority);
+      setTask('');
+      setDueDate('');
+      setPriority('first-year');
     }
   };
 
@@ -32,7 +32,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onAddTask }) => {
       <CardHeader className="pb-4">
         <CardTitle className="font-magical text-xl text-center flex items-center justify-center gap-2">
           <Flame className="h-5 w-5 text-primary" />
-          Inscribe a New Decree
+          Add New Task
           <Flame className="h-5 w-5 text-primary" />
         </CardTitle>
       </CardHeader>
@@ -40,16 +40,16 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onAddTask }) => {
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Decree Input */}
           <div className="space-y-2">
-            <Label htmlFor="decree" className="font-parchment text-sm font-semibold flex items-center gap-2">
+            <Label htmlFor="task" className="font-parchment text-sm font-semibold flex items-center gap-2">
               <Zap className="h-4 w-4 text-accent" />
-              The Decree
+              Task Description
             </Label>
             <Input
-              id="decree"
+              id="task"
               type="text"
-              value={decree}
-              onChange={(e) => setDecree(e.target.value)}
-              placeholder="Scribble your next Decree..."
+              value={task}
+              onChange={(e) => setTask(e.target.value)}
+              placeholder="What needs to be done?"
               className="input-magical font-parchment text-base"
               required
             />
@@ -57,15 +57,15 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onAddTask }) => {
 
           {/* Prophecy Date Input */}
           <div className="space-y-2">
-            <Label htmlFor="prophecyDate" className="font-parchment text-sm font-semibold flex items-center gap-2">
+            <Label htmlFor="dueDate" className="font-parchment text-sm font-semibold flex items-center gap-2">
               <Calendar className="h-4 w-4 text-accent" />
-              Prophecy Date
+              Due Date
             </Label>
             <Input
-              id="prophecyDate"
+              id="dueDate"
               type="date"
-              value={prophecyDate}
-              onChange={(e) => setProphecyDate(e.target.value)}
+              value={dueDate}
+              onChange={(e) => setDueDate(e.target.value)}
               className="input-magical font-parchment"
               required
             />
@@ -73,11 +73,11 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onAddTask }) => {
 
           {/* Urgency Level Select */}
           <div className="space-y-2">
-            <Label htmlFor="urgencyLevel" className="font-parchment text-sm font-semibold flex items-center gap-2">
+            <Label htmlFor="priority" className="font-parchment text-sm font-semibold flex items-center gap-2">
               <Zap className="h-4 w-4 text-accent" />
-              Urgency Level
+              Priority Level
             </Label>
-            <Select value={urgencyLevel} onValueChange={(value: Priority) => setUrgencyLevel(value)}>
+            <Select value={priority} onValueChange={(value: Priority) => setPriority(value)}>
               <SelectTrigger className="input-magical font-parchment">
                 <SelectValue />
               </SelectTrigger>
@@ -99,10 +99,10 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onAddTask }) => {
           <Button
             type="submit"
             className="w-full btn-magical font-magical text-lg py-3"
-            disabled={!decree.trim() || !prophecyDate}
+            disabled={!task.trim() || !dueDate}
           >
             <Flame className="h-5 w-5 mr-2" />
-            Incendio - Conjure Decree
+            Add Task
           </Button>
         </form>
       </CardContent>

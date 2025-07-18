@@ -92,7 +92,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
           
           {/* Magical Quote */}
           <p className="font-parchment text-sm text-muted-foreground/80 mt-8 italic">
-            "It is our choices that show what we truly are, far more than our abilities."
+            "The way to get started is to quit talking and begin doing."
           </p>
         </div>
       </div>
