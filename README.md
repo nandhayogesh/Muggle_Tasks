@@ -71,3 +71,37 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
+## Local Development
+
+1. Install dependencies:
+   ```sh
+   npm install
+   ```
+2. Start the development server:
+   ```sh
+   npm run dev
+   ```
+
+## Code Formatting & Linting
+
+- This project uses **Prettier** for code formatting and **ESLint** for linting.
+- On commit, **Husky** and **lint-staged** will automatically format and lint staged files.
+- To manually format code:
+  ```sh
+  npm run prettier -- --write .
+  ```
+- To manually lint code:
+  ```sh
+  npm run lint
+  ```
+
+## TypeScript Strictness
+
+- TypeScript is configured with strict settings for maximum type safety.
+
+## Contributing
+
+1. Fork the repository and create your branch.
+2. Make your changes and ensure all linting/formatting checks pass.
+3. Open a pull request.

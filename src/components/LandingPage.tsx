@@ -18,10 +18,13 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `url(${hogwartsHero})`,
-          filter: 'brightness(0.7) contrast(1.1)',
+          filter: theme === 'lumos' ? 'brightness(0.6) contrast(1.1)' : 'brightness(0.7) contrast(1.1)',
         }}
       />
-      
+      {/* Conditional dark overlay for light mode */}
+      {theme === 'lumos' && (
+        <div className="absolute inset-0 bg-black/40" />
+      )}
       {/* Magical Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/60 to-background/90" />
       
@@ -39,21 +42,6 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
         <div className="magical-float absolute top-1/3 right-20 text-accent/30" style={{ animationDelay: '6s' }}>
           <Sparkles size={16} />
         </div>
-      </div>
-
-      {/* Theme Toggle - Top Right */}
-      <div className="absolute top-6 right-6 z-20">
-        <Button
-          onClick={toggleTheme}
-          variant="ghost"
-          size="sm"
-          className="group bg-card/80 backdrop-blur-sm hover:bg-card border border-border/50"
-        >
-          <Wand2 className={`h-4 w-4 mr-2 transition-all duration-500 ${theme === 'lumos' ? 'wand-tip lumos' : ''}`} />
-          <span className="font-magical text-sm">
-            {theme === 'lumos' ? 'Nox' : 'Lumos'}
-          </span>
-        </Button>
       </div>
 
       {/* Main Content */}
